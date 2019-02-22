@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class StockPrices extends Component {
   render() {
     return (
-      <div className="App">
+      <div >
         stock prices
       </div>
     );

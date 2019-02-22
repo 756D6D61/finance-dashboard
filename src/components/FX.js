@@ -17,7 +17,7 @@ class FX extends Component {
   render() {
      console.log(this.props.FxReducer)
     return (
-      <div className="App">
+      <div>
         fx
       </div>
     );

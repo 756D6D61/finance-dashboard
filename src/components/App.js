@@ -29,11 +29,22 @@ class App extends Component {
   JSON.stringify(this.props)
  }
 </pre>
-
-        <StockPrices />
-        <FX />
-        <SectorPerf />
-        <Crypto />
+        <div class="wrapper side">
+          <div>
+            <StockPrices />
+            <div class="wrapper">
+              <div><SectorPerf /></div>
+            </div>    
+          </div>
+          <div>
+            <FX />
+            <div class="wrapper">
+              <div>
+                <Crypto />
+              </div>
+            </div>    
+            </div>        
+          </div>
       </div>
     );
   }

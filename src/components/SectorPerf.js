@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class SectorPerf extends Component {
   render() {
     return (
-      <div className="App">
+      <div >
         sector performance 
       </div>
     );
