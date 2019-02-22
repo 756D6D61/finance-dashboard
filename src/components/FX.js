@@ -11,10 +11,11 @@ const mapDispatchToProps = dispatch => ({
 })
 
 class FX extends Component {
+  componentDidMount = () => {
+    this.props.getData();
+   }
   render() {
-    this.componentDidMount = () => {
-      this.props.getData();
-     }
+     console.log(this.props.FxReducer)
     return (
       <div className="App">
         fx

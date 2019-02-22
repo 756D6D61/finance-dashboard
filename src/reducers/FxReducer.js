@@ -1,6 +1,5 @@
-const initialState = {}
 
-export default(state = initialState, action) => {
+export default(state = {}, action) => {
     switch(action.type) {
         case 'EUR_USD':
             return {
