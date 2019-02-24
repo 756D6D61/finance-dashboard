@@ -22,32 +22,33 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        app
-        <button onClick={this.simpleAction}>Test redux action</button>
-        <pre>
- {
-  JSON.stringify(this.props)
- }
-</pre>
-        <div class="wrapper side">
-          <div>
+        
+        <div className="container ">
+          <div className="side">
             <StockPrices />
-            <div class="wrapper">
-              <div><SectorPerf /></div>
-            </div>    
+            <div className="divider">
+            <SectorPerf />
+            </div>
           </div>
-          <div>
-            <FX />
-            <div class="wrapper">
-              <div>
-                <Crypto />
-              </div>
-            </div>    
-            </div>        
+        <div className="main">
+          <FX />
+          <div className="divider">
+          <Crypto />
           </div>
+        </div>
+      </div>
       </div>
     );
   }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+/*
+app
+        <button onClick={this.simpleAction}>Test redux action</button>
+        <pre>
+ {
+  JSON.stringify(this.props)
+ }
+</pre>
+ */
