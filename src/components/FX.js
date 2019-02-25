@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getData } from '../actions/fx';
 import { connect } from 'react-redux';
 import { Chart } from 'react-google-charts';
+import FxRates from './FxRates';
 
 const mapStateToProps = state => ({
   ...state
@@ -48,6 +49,7 @@ class FX extends Component {
           height="400px"
           data={data}
         />
+        <FxRates />
       </div>
     );
   }

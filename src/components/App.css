@@ -56,6 +56,7 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: row;
+
 }
 
 .divider {
@@ -66,5 +67,9 @@ body {
 .side {
   border-right: 1px solid #707070;
   width: 40%;
+}
+
+.main { 
+  margin-left: 2%;
 }
 

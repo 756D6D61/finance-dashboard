@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MUIDataTable from "mui-datatables";
+import { createMuiTheme, MuiThemeProvider, withStyles } from '@material-ui/core/styles';
 
 const columns = ["Name", "Company", "City", "State"];
  
@@ -11,23 +12,44 @@ const data = [
 ];
  
 const options = {
-  filterType: 'checkbox',
+  selectableRows: false,
 };
 
 class StockPrices extends Component {
-
+  getMuiTheme = () => createMuiTheme({
+    overrides: {
+      MUIDataTable: {
+        root: {
+        },
+        paper: {
+          boxShadow: "none",
+          border: "1px solid #707070", 
+          backgroundColor: "transparent"
+        }
+      },
+      MUIDataTableBodyRow: {
+        root: {
+          '&:nth-child(odd)': { 
+            backgroundColor: 'rgba(49,0,255,0.48)'
+          }
+        }
+      },
+      MUIDataTableBodyCell: {
+      }
+    }
+  })
  
   render() {
     return (
       <div >
-        stock prices
+        <MuiThemeProvider theme={this.getMuiTheme()}>
         <MUIDataTable
-  title={"Employee List"}
-  data={data}
-  columns={columns}
-  options={options}
-/>
- 
+          title={"Stock Prices"}
+          data={data}
+          columns={columns}
+          options={options}
+        />
+        </MuiThemeProvider>
       </div>
     );
   }
