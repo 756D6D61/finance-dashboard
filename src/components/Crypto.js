@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
-import { AreaChart, Area, XAxis, YAxis, LabelList, Tooltip,Legend } from 'recharts';
+import { AreaChart, Area, XAxis, Tooltip } from 'recharts';
+import { getCryptoData } from '../actions/crypto';
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => ({
+  ...state
+ })
+
+const mapDispatchToProps = dispatch => ({
+  getCryptoData: () => dispatch(getCryptoData())
+})
+
+
 class Crypto extends Component {
+  componentDidMount = () => {
+    this.props.getCryptoData();
+   }
   render() {
     const data = [
       {
@@ -46,6 +61,7 @@ class Crypto extends Component {
         "amt": 2100
       }
     ]
+    console.log(this.props.CryptoReducer)
       
     return (
       <div>
@@ -67,4 +83,4 @@ class Crypto extends Component {
   }
 }
 
-export default Crypto;
+export default connect(mapStateToProps, mapDispatchToProps)(Crypto);
