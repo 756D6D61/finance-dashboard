@@ -1,7 +1,22 @@
 import React, { Component } from 'react';
+import { getDataSector } from '../actions/sector';
+import { connect } from 'react-redux';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, } from 'recharts';
+
+const mapStateToProps = state => ({
+  ...state
+ })
+
+const mapDispatchToProps = dispatch => ({
+  getDataSector: () => dispatch(getDataSector())
+})
+
 class SectorPerf extends Component {
+  componentDidMount = () => {
+    this.props.getDataSector();
+   }
   render() {
+    console.log(this.props.SectorReducer)
     const data = [
       {
         "name": "Page A",
@@ -73,4 +88,4 @@ class SectorPerf extends Component {
   }
 }
 
-export default SectorPerf;
+export default connect(mapStateToProps, mapDispatchToProps)(SectorPerf);

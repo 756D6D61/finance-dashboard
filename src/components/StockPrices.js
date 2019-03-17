@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import MUIDataTable from "mui-datatables";
 import { createMuiTheme, MuiThemeProvider, withStyles } from '@material-ui/core/styles';
-
+import { getDataStock } from '../actions/stock';
+import { connect } from 'react-redux';
 const columns = ["Name", "Company", "City", "State"];
  
 const data = [
@@ -15,7 +16,18 @@ const options = {
   selectableRows: false,
 };
 
+const mapStateToProps = state => ({
+  ...state
+ })
+
+const mapDispatchToProps = dispatch => ({
+  getDataStock: () => dispatch(getDataStock())
+})
+
 class StockPrices extends Component {
+  componentDidMount = () => {
+    this.props.getDataStock();
+   }
   getMuiTheme = () => createMuiTheme({
     overrides: {
       MUIDataTable: {
@@ -40,6 +52,7 @@ class StockPrices extends Component {
   })
  
   render() {
+    console.log(this.props.StockReducer)
     return (
       <div >
         <MuiThemeProvider theme={this.getMuiTheme()}>
@@ -55,4 +68,4 @@ class StockPrices extends Component {
   }
 }
 
-export default StockPrices;
+export default connect(mapStateToProps, mapDispatchToProps)(StockPrices);

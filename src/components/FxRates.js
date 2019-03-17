@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
-import { getData } from '../actions/fx';
-import { connect } from 'react-redux';
+
 import { Chart } from 'react-google-charts';
 
-const mapStateToProps = state => ({
-  ...state
- })
-
-const mapDispatchToProps = dispatch => ({
-  getData: () => dispatch(getData())
-})
 
 const data = [
   ["Country", "Popularity"],
@@ -22,11 +14,8 @@ const data = [
 ];
 
 class FxRates extends Component {
-  componentDidMount = () => {
-    this.props.getData();
-   }
+  
   render() {
-     console.log(this.props.FxReducer)
     return (
       <div>
         <p>EUR/USD 1.5</p>
@@ -44,4 +33,4 @@ class FxRates extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FxRates);
+export default FxRates;
